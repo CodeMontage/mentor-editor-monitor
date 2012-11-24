@@ -18,8 +18,8 @@ def main():
 	result, data = mail.uid('search',"(SINCE 22-Nov-2012)") #search and return unique ids http://tools.ietf.org/html/rfc3501#section-6.4.4
 	messages = data[0].split()
 
-	i = 0
-	emails = dict()
+
+	emails = []
 	for uid in messages:
 		result, data = mail.uid('fetch', uid, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT TO FROM RECEIVED)])') #Fetch just desired data
 		raw_email = data[0][1]
@@ -29,13 +29,13 @@ def main():
 
 		#Reorganizing the data for the template
 		#probably a much better way to do this, interested in knowing it ^_^;;;
-		emails[i] = dict()
-		emails[i]['From'] = msg['From']
-		emails[i]['To'] = msg['To']
-		emails[i]['Subject'] = msg['Subject']
-		emails[i]['Received'] = msg['Received'] #Returns IP addresses and SMTP id as well.
-		i = i+1
-	
+		email = dict()
+		email['From'] = msg['From']
+		email['To'] = msg['To']
+		email['Subject'] = msg['Subject']
+		email['Received'] = msg['Received'] #Returns IP addresses and SMTP id as well.
+		emails.append(email)
+		
 	return render_template('messages.html', msg=emails)
 		
 if __name__ == "__main__":

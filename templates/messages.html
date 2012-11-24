@@ -1,5 +1,5 @@
 <!doctype html>
 <title>Messages in My Inbox</title>
 {% for item in msg %}
-  <p>{{ msg[item]['From'] }} || {{ msg[item]['To'] }} || {{ msg[item]['Subject'] }} || {{ msg[item]['Received'] }}</p>
+  <p>{{ item['From'] }} || {{ item['To'] }} || {{ item['Subject'] }} || {{ item['Received'] }}</p>
 {% endfor %}
