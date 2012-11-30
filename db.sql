@@ -19,4 +19,4 @@ CREATE TABLE `users` (
 -- Not sure about threading. On one hand it would be useful to track ongoing exchanges, on the other not sure
 -- how easy it is to get accurate data about this out of IMAP. Plus plenty of people just reply to the last
 -- message to start a new conversation. Realistically speaking an exchange between mentor and mentee might get
--- classified as one giant thread, which is not useful.
+-- classified as one giant thread, which is not useful. 
